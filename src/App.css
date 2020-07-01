@@ -1,0 +1,63 @@
+
+.ant-carousel .slick-slide {
+    text-align: center;
+    height: inherit;
+    line-height: inherit;
+    background: #364d79;
+    overflow: hidden;
+  }
+  
+  .ant-carousel .slick-slide h3 {
+    color: #fff;
+  }
+
+  .collapsible{
+      margin: 0;
+  }
+
+  .welcome_header{
+      min-height: 15rem;
+      color: white;
+      background-color: #22bf7c;
+  }
+
+  .header_text{
+      max-width: 40rem;
+      text-align: justify;
+      color: white;
+  }
+  .header_text > h4{
+      color: inherit
+  }
+
+
+  /* sidemenu */
+  .sidemenu{
+    padding: 2rem 0;
+  }
+  .sidemenu > li{
+    padding: 2rem !important;
+  }
+
+
+  .top_stick{
+    margin-top: 3rem;
+  }
+  /* sidemenu */
+
+
+  /* slick css */
+  .slick-next{
+    right: 1rem;
+
+  }
+  .slick-prev{
+    left: 1rem;
+  }
+
+  .slick-next,  .slick-prev{
+    z-index: 1;
+  }
+
+
+ 

@@ -1,0 +1,24 @@
+.header{
+    background-color: darkgray;
+}
+
+
+
+/* h3 m20 */
+
+.h3m20{
+    margin-top: 2rem;
+}
+
+
+
+
+
+/* order view */
+
+.orderViewHeader, .orderViewDocs, .orderViewDetails{
+    margin: 2rem 1rem;
+}
+
+
+/* order view.end */

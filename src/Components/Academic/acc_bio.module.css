@@ -1,0 +1,39 @@
+/* acc bio */
+.bio_img{
+    height: 30rem;
+    margin-top: 4rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background: center center;
+}
+
+
+/* acc bio desr */
+.bio_img_descr{
+    height: 30rem;
+    width:100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background: center center;
+}
+.header_descr{
+    margin-top: 2rem;
+}
+
+.info_descr{
+    padding: 2rem;
+}
+
+
+/* acc payrates */
+
+
+
+
+/* acc services */
+.card_head{
+    padding: 0 0 1px 10px !important;
+    margin-bottom: 0.01rem !important;
+    margin-top: 0 !important;
+    text-align: center !important;
+}

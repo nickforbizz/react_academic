@@ -1,0 +1,14 @@
+.welcome_header{
+    min-height: 15rem;
+    color: white;
+    background-color: #1eae70;
+}
+
+.header_text{
+    max-width: 40rem;
+    text-align: justify;
+    color: white;
+}
+.header_text > h4{
+    color: inherit
+}

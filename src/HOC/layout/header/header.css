@@ -1,0 +1,40 @@
+.sticky {
+    position: fixed;
+    top: 0;
+    z-index: 644949;
+    width: 100%;
+    /* padding: .5rem; */
+    background-color: #02be6e!important;
+    backface-visibility: hidden;
+  }
+
+.headTop{
+    margin-bottom: 0 !important;
+    padding: .5rem;
+    background-color: #1cbe79;
+  }
+
+nav{
+    color: white;
+    background-color: #02be6e!important;
+    z-index: 999;
+    transition: all .4s linear;
+}
+.nav-wrapper{
+    box-shadow: 1px 1px 10px green;
+    backface-visibility: hidden;  
+
+}
+
+
+.brand-logo{
+      padding-left: 2rem !important;
+  }
+
+
+
+.f_icon{
+    font-size: 1.5rem;
+    margin-right: .5rem;
+    color: #0c2a10;
+  }
