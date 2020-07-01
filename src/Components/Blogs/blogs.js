@@ -27,7 +27,7 @@ export default function Blogs() {
 
         M.AutoInit();
 
-        let url_blog = `${URL}/api/blogs?_token=${appauth.apptoken}`
+        let url_blog = `${URL}/api/blogs?_token=${appauth.apptoken}` 
         let data = {
             "_token": appauth.apptoken
         }
