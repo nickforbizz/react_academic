@@ -57,7 +57,7 @@ export default function AccBio() {
 
                                         <div className="card">
                                             <div className="card-image">
-                                            <img src="images/Blog-Promotion-101-Illustration-Feature_1290x688_KL.jpg" />
+                                            <img src="images/Blog-Promotion-101-Illustration-Feature_1290x688_KL.jpg" alt="" />
                                             <span className="card-title">Card Title</span>
 
                                             <Link to="/acc_bio_descr" className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></Link>
@@ -78,7 +78,7 @@ export default function AccBio() {
 
                                         <div className="card">
                                             <div className="card-image">
-                                            <img src="images/blogs-and-articles-500x500.jpg" />
+                                            <img src="images/blogs-and-articles-500x500.jpg" alt=""/>
                                             <span className="card-title">Card Title</span>
                                             <a className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></a>
                                             </div>

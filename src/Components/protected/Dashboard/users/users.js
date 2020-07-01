@@ -67,7 +67,7 @@ export default function Users(props) {
         const onSubmit = data => {
     
             let url =''
-            if(data.url == 'C') {
+            if(data.url === 'C') {
                 url = `${URL}/api/create_users`
             }else{
                 url = `${URL + data.url}` 

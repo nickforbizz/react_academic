@@ -68,7 +68,7 @@ export default function OrderLang() {
     const onSubmit = data => {
 
         let url =''
-        if(data.url == 'C') {
+        if(data.url === 'C') {
             url = `${URL}/api/order_lang`
         }else{
             url = `${URL + data.url}` 

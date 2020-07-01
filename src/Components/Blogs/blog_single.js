@@ -5,7 +5,6 @@ import React, { useState, useEffect } from 'react'
 // styles
 import styles from './blogs.module.css'
 
-import Moment from 'react-moment';
 import M from 'materialize-css';
 import ReactHtmlParser from 'react-html-parser'; 
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,7 +14,7 @@ import {
   } from '@ant-design/icons';
 
 // import helpers
-import { URL, fetchData, postData } from '../../Helpers/config'
+import { URL, fetchData } from '../../Helpers/config'
 import appauth from '../../appauth';
 
 

@@ -6,14 +6,14 @@ import Maincarousel from '../../Widgets/Carousel/Main/maincarousel';
 
 // styles
 import styles from './blogs.module.css'
-import Moment from 'react-moment';
+
 import M from 'materialize-css';
 import ReactHtmlParser from 'react-html-parser'; 
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 
 // import helpers
-import { URL, fetchData, postData } from '../../Helpers/config'
+import { URL, fetchData } from '../../Helpers/config'
 import appauth from '../../appauth';
 
 export default function Blogs() {
@@ -51,7 +51,7 @@ export default function Blogs() {
             template = 
             (
             <div className="card material-table">
-                <p> No Data Available </p>
+                <p className={styles.nodata}> No Data Available </p>
             </div>
             )
         }else{
@@ -90,6 +90,8 @@ export default function Blogs() {
         <React.Fragment>
 
             <div className="container">
+
+                <ToastContainer />
 
                 <Maincarousel height={25}/>
 
