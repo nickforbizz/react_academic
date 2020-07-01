@@ -34,76 +34,88 @@ export default function Blogs() {
 
 
         fetchData(url_blog, {data}).then(data=>{
-            (data.code === -1) ? toast.error("Fatal Error while fetching data") : setBlogs(data.msg.msg)
+            console.log(data);
+            
+            if(data.code === -1){
+                toast.error("Fatal Error while fetching data")
+            }else{
+                (data.msg.code === -1) ? toast.error("Fatal Error while fetching data") : setBlogs(data.msg.msg)
+            }
+            
         })
 
 
-        console.log(blogs);
         
 
-    })
+    },[])
 
 
     const blogCard = () => {
         let template = null
+      
 
-        if(blogs.length < 1 ){
-            template = 
-            (
-            <div className="card material-table">
-                <p className={styles.nodata}> No Data Available </p>
-            </div>
-            )
-        }else{
+        template = blogs.map((item, i) => (
 
-            template = blogs.map((item, i) => (
+            <div className="card horizontal" key={i}>
 
-                <div className="card horizontal" key={i}>
-
-                    <div className="card-image imageDiv" 
-                         style={{ 
-                            background: `url('${URL}/api/uploads/blog_images/${item.featured_image}')`
-                         }}
-                     >
-                    </div>
-
-                    <div className="card-stacked">
-                    <div className="card-content">
-                        <h5> {item.title} </h5>
-                        <div className="divider"></div>
-                        { ReactHtmlParser(item.body.substring(0, 400)) } <b> ... </b>
-                    </div>
-
-                        <div className="card-action right-align">
-                            <Link to={`/single_blog/${item.id}`} className="waves-effect waves-light btn-small"> View </Link>
-                        </div>
-
-                    </div>
+                <div className="card-image imageDiv" 
+                        style={{ 
+                        background: `url('${URL}/api/uploads/blog_images/${item.featured_image}')`
+                        }}
+                    >
                 </div>
 
-            ))
-        }
+                <div className="card-stacked">
+                <div className="card-content">
+                    <h5> {item.title} </h5>
+                    <div className="divider"></div>
+                    { ReactHtmlParser(item.body.substring(0, 400)) } <b> ... </b>
+                </div>
+
+                    <div className="card-action right-align">
+                        <Link to={`/single_blog/${item.id}`} className="waves-effect waves-light btn-small"> View </Link>
+                    </div>
+
+                </div>
+            </div>
+
+        ))
+    
 
         return template
     }
-    return (
-        <React.Fragment>
-
-            <div className="container">
-
-                <ToastContainer />
-
-                <Maincarousel height={25}/>
 
 
+    console.log(blogs);
 
-                 {/* cards for news */}
-                 { blogCard() }
+    if(blogs.length < 1 ){
 
+        return (<div className="card material-table">
+            <ToastContainer />
+            <p className={styles.nodata}> No Data Available </p>
+        </div>)
 
-                  
+    }else{
 
-            </div>
-        </React.Fragment>
-    )
+        return (
+            <React.Fragment>
+    
+                <div className="container">
+    
+                    <ToastContainer />
+    
+                    <Maincarousel height={25}/>
+    
+    
+    
+                     {/* cards for news */}
+                     { blogCard() }
+    
+    
+                      
+    
+                </div>
+            </React.Fragment>
+        )
+    }
 }
