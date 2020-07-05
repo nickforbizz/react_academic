@@ -58,31 +58,37 @@ export default function Login(props) {
         let token = Buffer.from(`${data.username}:${data.password}`, 'utf8').toString('base64')
 
         showModal()
-        axios.get(url,{ headers: {
-            'Authorization': `Basic ${token}`
-          }})
-        .then(res => {
 
-            handleCancel()
-            if(res.data.code === 1){
 
-                setFeedback(res.data.msg)
-                setApptoken(res.data.token)
+        if(navigator.cookieEnabled){
 
-                AppAuth.authenticate(res.data)
-
+            axios.get(url,{ headers: {
+                    'Authorization': `Basic ${token}`
+                }})
+                .then(res => {
+        
+                    handleCancel()
+                    if(res.data.code === 1){
+        
+                        setFeedback(res.data.msg)
+                        setApptoken(res.data.token)
+        
+                        AppAuth.authenticate(res.data)
+        
+                    }else{
+        
+                        setFeedback(res.data.msg)
+        
+                    }
+                    showModal()
+                })
+                .catch(err => {
+                    setFeedback("Fatal error")
+                })
             }else{
-
-                setFeedback(res.data.msg)
-
+                setFeedback("Please enable cookies to continue")
             }
-            showModal()
-        })
-        .catch(err => {
-            console.error(err)
-            setFeedback("Fatal error")
-        })
-    }
+        }
 
 
     const lets_redirect = AppAuth.isAuthenticated

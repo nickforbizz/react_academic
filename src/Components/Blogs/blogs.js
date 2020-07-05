@@ -73,7 +73,7 @@ export default function Blogs() {
                 </div>
 
                     <div className="card-action right-align">
-                        <Link to={`/single_blog/${item.id}`} className="waves-effect waves-light btn-small"> View </Link>
+                        <Link to={`/single_blog/${item.id}/${item.user_id}`} className="waves-effect waves-light btn-small"> View </Link>
                     </div>
 
                 </div>

@@ -3,11 +3,15 @@
 class AppAuth{
 
     constructor() {
-
-        this.isAuthenticated = localStorage.getItem('isAuthenticated')
-        this.apptoken = localStorage.getItem('apptoken')
-        this.user_id = localStorage.getItem('user_id')
-        this.user_email = localStorage.getItem('user_email')
+        if(navigator.cookieEnabled){
+            this.isAuthenticated = localStorage.getItem('isAuthenticated')
+            this.apptoken = localStorage.getItem('apptoken')
+            this.user_id = localStorage.getItem('user_id')
+            this.user_email = localStorage.getItem('user_email')
+        }else{
+            alert('Please unblock cokies to continue')
+            // this.deAuthenticate()
+        }
     }
 
 

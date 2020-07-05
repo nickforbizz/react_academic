@@ -6,7 +6,7 @@
 
 /* blog single */
 .blog_box{
-    background: #e6e9e5;
+    background: #f5f9f394;
     padding: 20px;
 }
 
@@ -42,4 +42,14 @@
     color: white;
     padding: 2px 16px;
     border-radius: 3px;
+}
+
+
+
+.blog_comment_box{
+    margin: 20px 0 5px 0;
+    width: 60vw;
+    border-radius: 10px;
+    padding: 5px;
+    min-height: 65px;
 }

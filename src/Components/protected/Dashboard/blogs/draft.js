@@ -1,16 +1,19 @@
 import React, { Component } from 'react'
 
 // dependencies
-import { Editor } from '@tinymce/tinymce-react';
+import { Editor } from 'react-draft-wysiwyg'
+import {EditorState } from 'draft-js'
+import { stateToHTML  } from 'draft-js-export-html'
 
 
 import M from 'materialize-css'
 import 'react-toastify/dist/ReactToastify.css'
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import { ToastContainer, toast } from 'react-toastify'
  
 
 // import helpers
-import { URL, fetchData, postData, tinymceKey } from '../../../../Helpers/config'
+import { URL, fetchData, postData } from '../../../../Helpers/config'
 import appauth from '../../../../appauth'
 
 
@@ -20,7 +23,7 @@ import styles from '../dashboard.module.css'
 export default class blog_view extends Component {
 
     state ={
-        editor: '',
+        editorState: EditorState.createEmpty(),
         post_body: '',
         featured_image: '',
         blog_category_id: '',
@@ -31,12 +34,13 @@ export default class blog_view extends Component {
 
 
 
-    handleEditorChange  = (content, editor) => {
+    onEditorStateChange = (editorState) => {
 
-        let post_body = content 
+        let contentState = editorState.getCurrentContent()
+        let post_body = stateToHTML(contentState) 
         
         this.setState({
-            editor,
+            editorState,
             post_body
         });
       };
@@ -154,15 +158,14 @@ export default class blog_view extends Component {
                         <div className="input-field col s12">
                             <p>Body</p>
                             <Editor
-                                apiKey = {tinymceKey}
-                                init={{
-                                    plugins: 'autoresize advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code fullscreen insertdatetime media table paste code help wordcount',
-                                    toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code media',
-                                    placeholder: "Write something here"
-                                }}
-                                onEditorChange={this.handleEditorChange}
+                                editorState={this.state.editorState}
+                                spellCheck="true"
+                                placeholder="Write something here"
+                                toolbarClassName="toolbarClassName"
+                                wrapperClassName="wrapperClassName"
+                                editorClassName="editorClassName"
+                                onEditorStateChange={this.onEditorStateChange}
                             />
-                            
                         </div>
                         <div className="input-field col s12">
 

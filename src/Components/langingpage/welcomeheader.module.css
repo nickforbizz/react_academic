@@ -6,9 +6,13 @@
 
 .header_text{
     max-width: 40rem;
-    text-align: justify;
+    text-align: left;
     color: white;
 }
 .header_text > h4{
     color: inherit
+}
+
+.place_order{
+    margin: 20px 0;
 }

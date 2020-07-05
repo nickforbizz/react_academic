@@ -29,9 +29,12 @@ export default function AdminBlogs() {
 
         fetchData(url_blogs).then(data=>{
             
-            (data.code === -1) ? alert("Fatal Error while fetching data") : setBlogs(data.msg)
-            console.log(data)
-            alert()
+            if(data.code === -1){
+                toast.error("Fatal Error while fetching data")
+            }else{
+
+                (data.code === -1) ? toast.error(data.msg.msg) : setBlogs(data.msg.msg)
+            }
         })
         
 
@@ -176,9 +179,13 @@ export default function AdminBlogs() {
     
                     <div id="admin" className="col s12">
                         <div className="card material-table">
-                            
 
-    
+                            <Link style={{marginBottom: '10px'}}
+                                to={`/admin_addblog`} 
+                                className="btn waves-effect waves-light green">
+                                        Add
+                            </Link>
+
                             <MUIDataTable
                                 title={"Blogs Table"}
                                 data={blogs_data}

@@ -13,7 +13,9 @@ code {
 }
 
 
-
+.pull_right{
+  float: right;
+}
 
 .row_del{
   margin: 0;
@@ -51,6 +53,42 @@ code {
 /* image divs */
 .imageDiv{
   background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover !important;
     width: 100%;
+}
+
+
+/* icon to green */
+.anticon {
+  color: green !important;
+}
+
+.divider{
+  height: 1px !important;
+}
+
+
+
+
+/* media queries */
+
+@media only screen and (max-width: 400px) {
+  iframe {
+    width: auto !important;
+  }
+}
+@media only screen and (max-width: 700px) {
+  iframe {
+    width: 80vw !important;
+  }
+}
+
+
+@media only screen and (max-width: 400px) {
+  .break_float {
+    float: left;
+    display: block;
+    width: -webkit-fill-available;
+    margin-bottom: 1rem;
+  }
 }

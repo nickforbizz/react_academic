@@ -32,7 +32,7 @@ export default function AccServices() {
                                         <div className="card">
 
                                             <div className="card-image">
-                                                <img src="images/Blog-Promotion-101-Illustration-Feature_1290x688_KL.jpg" />
+                                                <img src="images/Blog-Promotion-101-Illustration-Feature_1290x688_KL.jpg" alt=""/>
                                             </div>
 
                                             <p className={"card-title text-center " +styles.card_head }>Card Title</p>
@@ -52,7 +52,7 @@ export default function AccServices() {
 
                                         <div className="card">
                                             <div className="card-image">
-                                                <img src="images/blogs-and-articles-500x500.jpg" />
+                                                <img src="images/blogs-and-articles-500x500.jpg"  alt=""/>
                                             </div>
                                             <p className={"card-title text-center " +styles.card_head }>Card Title</p>
                                             <div className="card-content">
@@ -70,7 +70,7 @@ export default function AccServices() {
 
                                         <div className="card">
                                             <div className="card-image">
-                                                <img src="images/blogs-versus-articles.jpg" />
+                                                <img src="images/blogs-versus-articles.jpg"  alt=""/>
                                             </div>
                                             <p className={"card-title text-center " +styles.card_head }>Card Title</p>
                                             <div className="card-content">

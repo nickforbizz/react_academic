@@ -43,6 +43,7 @@ import PlaceOrder from './Components/protected/Dashboard/orders/placeOrder'
 import AdminBlogCat from './Components/protected/Dashboard/blogs/blog_cats'
 import AdminBlogs from './Components/protected/Dashboard/blogs/blogs'
 import AdminBlogView from './Components/protected/Dashboard/blogs/blog_view'
+import AdminAddBlog from './Components/protected/Dashboard/blogs/add_blog'
 
 
 // users
@@ -76,7 +77,7 @@ export default function Routes(props) {
 
                     {/* Blogs */}
                     <Route path = "/blogs" exact component={Blogs}/> 
-                    <Route path = "/single_blog/:id" exact component={singleBlog}/> 
+                    <Route path = "/single_blog/:id/:user_id" exact component={singleBlog}/> 
 
 
                     {/* Auth */}
@@ -101,6 +102,7 @@ export default function Routes(props) {
                         {/* blogs */}
                         <ProtectedRoute path = "/admin_blogcat" exact component={AdminBlogCat}/> 
                         <ProtectedRoute path = "/admin_blogs" exact component={AdminBlogs}/> 
+                        <ProtectedRoute path = "/admin_addblog" exact component={AdminAddBlog}/> 
                         <ProtectedRoute path = "/admin_view_blog/:id" exact component={AdminBlogView}/> 
 
                         {/* users */}

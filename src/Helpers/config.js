@@ -3,6 +3,8 @@ import Axios from 'axios'
 
 const URL = 'http://127.0.0.1:5000'
 
+const tinymceKey = '9n7q5uo1xhu6jzgvvgmzn0w0qly6ck0p6cffyk4iwxl5ieyq'
+
 async function fetchData(url) {
     var g_data;
     await Axios.get(url)
@@ -48,5 +50,5 @@ async function postData(url, data={}, params={}) {
 }
 
 export  { 
-    URL, fetchData, postData
+    URL, fetchData, postData, tinymceKey
 }

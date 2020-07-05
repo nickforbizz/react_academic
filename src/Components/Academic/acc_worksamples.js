@@ -1,12 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 
 // dependencies
 import { Table } from 'antd';
 
 // styles
-import styles from './acc_bio.module.css'
 import SideLeftPage from '../langingpage/sideleftpage';
 
 export default function AccWorksamples() {

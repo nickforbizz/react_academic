@@ -214,7 +214,7 @@ export default function Users(props) {
                                     </div>
     
                                     {
-                                        (userURL != 'C') ?
+                                        (userURL !== 'C') ?
                                             <div className="col s12">
                                                 <label htmlFor="archive">Archive</label>
                                                 <select id="archive" className="browser-default" name="archive" ref={register()}>

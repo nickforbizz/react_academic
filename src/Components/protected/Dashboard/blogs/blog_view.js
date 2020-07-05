@@ -1,21 +1,17 @@
 import React, { Component } from 'react'
 
 // dependencies
-import { Editor } from 'react-draft-wysiwyg'
-import {EditorState,  ContentState  } from 'draft-js'
-import { stateToHTML   } from 'draft-js-export-html'
-import htmlToDraft from 'html-to-draftjs';
+import { Editor } from '@tinymce/tinymce-react';
 
 
 
 
 import M from 'materialize-css'
 import 'react-toastify/dist/ReactToastify.css'
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 import { ToastContainer, toast } from 'react-toastify'
 
 // import helpers
-import { URL, fetchData, postData } from '../../../../Helpers/config'
+import { URL, fetchData, postData, tinymceKey } from '../../../../Helpers/config'
 import appauth from '../../../../appauth'
 
 
@@ -25,7 +21,7 @@ import styles from '../dashboard.module.css'
 export default class blog_view extends Component {
 
     state ={
-        editorState: EditorState.createEmpty(),
+        editor: '',
         post_body: '',
         featured_image: '',
         blog_category_id: '',
@@ -38,13 +34,12 @@ export default class blog_view extends Component {
 
 
 
-    onEditorStateChange = (editorState) => {
+    handleEditorChange  = (content, editor) => {
 
-        let contentState = editorState.getCurrentContent()
-        let post_body = stateToHTML(contentState) 
+        let post_body = content 
         
         this.setState({
-            editorState,
+            editor,
             post_body
         });
       };
@@ -65,19 +60,22 @@ export default class blog_view extends Component {
         })
 
         fetchData(url_post, {data}).then(data=>{
-            (data.code === -1) ? toast.error("Fatal Error while fetching data") : this.setState({ post: data.msg.msg })
+            if(data.code === -1){
+                toast.error("Fatal Error while fetching data")
+            }else{
+
+                (data.msg.code === -1) ? toast.error(data.msg.msg) : this.setState({ post: data.msg.msg })
+                
+            }
             
 
             if (this.state.post !==null && this.state.post !==undefined) {
-                const html = this.state.post.body;
-                const blocksFromHtml = htmlToDraft(html);
-                const { contentBlocks, entityMap } = blocksFromHtml;
-                const contentState = ContentState.createFromBlockArray(contentBlocks, entityMap);
+
                 this.setState({ 
-                    editorState: EditorState.createWithContent(contentState)
+                    post_body: this.state.post
                 })
             } else {
-                this.setState({ editorState: EditorState.createEmpty() });
+                this.setState({ post_body: '' });
             }
         })
         
@@ -119,8 +117,6 @@ export default class blog_view extends Component {
         } else if(post_title === ''){
             toast.error("Please provide a title in the form field ")
         } else {
-
-            console.log( this.state.post_body);
             
             
             postData(url, formdata)
@@ -162,7 +158,7 @@ export default class blog_view extends Component {
     
     
                     <div className="card material-table">
-                        <h4>View Post</h4>
+                        <h4 className={styles.blog_view}>View Post</h4>
     
     
                         <form  encType="multipart/form-data" id="post_form" onSubmit = { (e) => this.submitData(e) }>
@@ -191,14 +187,16 @@ export default class blog_view extends Component {
                             <div className="input-field col s12">
                                 <p>Body</p>
                                 <Editor
-                                    editorState={this.state.editorState}
-                                    spellCheck="true"
-                                    placeholder="Write something here"
-                                    toolbarClassName="toolbarClassName"
-                                    wrapperClassName="wrapperClassName"
-                                    editorClassName="editorClassName"
-                                    onEditorStateChange={this.onEditorStateChange}
+                                    apiKey = {tinymceKey}
+                                    initialValue = {this.state.post.body}
+                                    init={{
+                                        plugins: 'autoresize advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code fullscreen insertdatetime media table paste code help wordcount',
+                                        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code media',
+                                        placeholder: "Write something here"
+                                    }}
+                                    onEditorChange={this.handleEditorChange}
                                 />
+                                
                             </div>
                             <div className="input-field col s12">
     

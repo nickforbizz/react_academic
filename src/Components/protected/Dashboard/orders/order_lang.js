@@ -204,7 +204,7 @@ export default function OrderLang() {
                                 </div>
 
                                 {
-                                    (langURL != 'C') ?
+                                    (langURL !== 'C') ?
                                         <div className="col s12">
                                             <label htmlFor="archive">Archive</label>
                                             <select id="archive" className="browser-default" name="archive" ref={register()}>
@@ -235,7 +235,7 @@ export default function OrderLang() {
                         <div className="row">
                             <div className="right-align row_del">
                                     {
-                                        (langURL != 'C') ?
+                                        (langURL !== 'C') ?
                                         
 
                                             <button onClick ={(rowid) => delRecord(rowid)} className="waves-effect waves-light btn red ">Delete </button>  
