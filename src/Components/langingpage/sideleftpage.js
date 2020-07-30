@@ -37,7 +37,7 @@ export default function SideLeftPage(props) {
         <React.Fragment>
             
             
-            <div className='hide-on-med-and-down' style={{ height: '100vh'}}>
+            <div className='hide-on-small-only' style={{ height: ''}}>
 
                 <Affix offsetTop={top}>
 
@@ -46,7 +46,8 @@ export default function SideLeftPage(props) {
                     defaultSelectedKeys={['1']}
                     defaultOpenKeys={['sub1']}
                     mode="inline"
-                    className="sidemenu"
+                    className="sidemenu shadow h50"
+
                     >
 
                         <Menu.Item>

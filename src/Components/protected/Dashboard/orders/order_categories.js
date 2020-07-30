@@ -291,7 +291,10 @@ export default function OrderCat() {
 
 
     if(ordercats.length < 1){
-        return <h3>Rendering</h3>
+        return <div className="card material-table">
+                    <h4>  Order Categories </h4>
+                    <p> No data available</p>
+                </div>
     }else{
         return (
             <React.Fragment>

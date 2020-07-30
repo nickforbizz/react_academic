@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useState, useEffect }  from 'react'
 import { Switch, Route } from 'react-router-dom';
 
 // dependencies
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 import ProtectedRoute from './AuthRoutes/protected'
+
+// helpers
+import appauth from './appauth'
+import { URL, fetchData } from './Helpers/config'
 
 // components
 import AppLayout from './HOC/layout/applayout'
@@ -55,9 +61,27 @@ import Users from './Components/protected/Dashboard/users/users'
 import NotFound from './Components/notFound'
 
 export default function Routes(props) {
+
+    // states
+    const [user, setUser] = useState([])
+
+    useEffect(() =>  {
+        let user_id = (appauth.user_id)
+        let url_user = `${URL}/api/get_user/${user_id}`
+        if(user_id !== null){
+            fetchData(url_user).then(data=>{
+                (data.code === -1) ? toast.error("Fatal Error while fetching data") : setUser(data.msg.msg)
+                
+            })
+        }else{
+        toast.error("User Not Found")
+        }
+    },[])
+
     return (
         <React.Fragment>
             <AppLayout {...props}>
+                <ToastContainer />
 
                 <Switch>
 
@@ -77,7 +101,7 @@ export default function Routes(props) {
 
                     {/* Blogs */}
                     <Route path = "/blogs" exact component={Blogs}/> 
-                    <Route path = "/single_blog/:id/:user_id" exact component={singleBlog}/> 
+                    <Route path = "/single_blog/:rowid/:id/:user_id" exact component={singleBlog}/> 
 
 
                     {/* Auth */}
@@ -95,20 +119,30 @@ export default function Routes(props) {
                         <ProtectedRoute path = "/orders" exact component={Orders}/> 
                         <ProtectedRoute path = "/placeOrder" exact component={PlaceOrder}/> 
                         <ProtectedRoute path = "/view_order/:id" exact component={OrderView}/> 
-                        <ProtectedRoute path = "/orderformat" exact component={OrderFormat}/> 
-                        <ProtectedRoute path = "/ordercat" exact component={OrderCat}/> 
-                        <ProtectedRoute path = "/orderlang" exact component={OrderLang}/> 
 
-                        {/* blogs */}
-                        <ProtectedRoute path = "/admin_blogcat" exact component={AdminBlogCat}/> 
-                        <ProtectedRoute path = "/admin_blogs" exact component={AdminBlogs}/> 
-                        <ProtectedRoute path = "/admin_addblog" exact component={AdminAddBlog}/> 
-                        <ProtectedRoute path = "/admin_view_blog/:id" exact component={AdminBlogView}/> 
+                        {/* for admins */}
 
-                        {/* users */}
-                        <ProtectedRoute path = "/users" exact component={Users}/> 
+                        {
+                            (user.admin === 1) ?
+                                <>
+                                    <ProtectedRoute path = "/orderformat" exact component={OrderFormat}/> 
+                                    <ProtectedRoute path = "/ordercat" exact component={OrderCat}/> 
+                                    <ProtectedRoute path = "/orderlang" exact component={OrderLang}/> 
+            
+                                    {/* blogs */}
+                                    <ProtectedRoute path = "/admin_blogcat" exact component={AdminBlogCat}/> 
+                                    <ProtectedRoute path = "/admin_blogs" exact component={AdminBlogs}/> 
+                                    <ProtectedRoute path = "/admin_addblog" exact component={AdminAddBlog}/> 
+                                    <ProtectedRoute path = "/admin_view_blog/:id" exact component={AdminBlogView}/> 
+            
+                                    {/* users */}
+                                    <ProtectedRoute path = "/users" exact component={Users}/> 
+                                </>
+                            :
+                                <ProtectedRoute path = "/dashboard" exact component={Dashboard}/>  
+                        }
 
-                        {/* <Route component={NotFound}/>  */}
+                        
                     </AppDashboardLayout>
 
                     <Route component={NotFound}/> 

@@ -16,7 +16,7 @@ export default function AccBio() {
                     <div className="col s0 m3">
                         <SideLeftPage />
                     </div>
-                    <div className="col s12 m9">
+                    <div className="col s12 m9 green">
 
 
                         <div className="row card" style={{ margin: '1rem' }}>

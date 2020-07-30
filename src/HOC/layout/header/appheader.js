@@ -42,7 +42,10 @@ export default function AppHeader() {
         let template = null
         
         if(AppAuth.isAuthenticated) {
-          template = <li><Link to="/logout">Logout</Link></li>
+          template = <>
+                      <li><Link to="/dashboard">Dashboard</Link></li>
+                      <li><Link to="/logout">Logout</Link></li>
+                    </>
 
         }else{
           template = <li><Link to="/login">Login</Link></li>

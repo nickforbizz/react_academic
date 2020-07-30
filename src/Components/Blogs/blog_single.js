@@ -21,6 +21,7 @@ import appauth from '../../appauth';
 
 export default function BlogSingle(props) {
     let blog_id = (props.match.params.id);
+    let blog_rowid = (props.match.params.rowid);
     let user_id = (props.match.params.user_id);
 
     // states
@@ -35,7 +36,7 @@ export default function BlogSingle(props) {
 
         M.AutoInit();
 
-        let url_blog = `${URL}/api/get_blog/${blog_id}`
+        let url_blog = `${URL}/api/get_blog/${blog_rowid}`
         let url_blog_view = `${URL}/api/blog_views/${blog_id}`
         let url_user = `${URL}/api/get_user/${user_id}`
         let url_blog_comments = `${URL}/api/get_blog_comments/${blog_id}`
@@ -61,6 +62,7 @@ export default function BlogSingle(props) {
             console.log({data});
                  
         })
+
 
         // user 
         if(user_id !== null){
@@ -110,7 +112,7 @@ export default function BlogSingle(props) {
                         (data.msg.code === -1) ? toast.error(data.msg.msg) : toast.success(data.msg.msg);
                         
                         setTimeout(() => {
-                            window.location.reload()
+                            // window.location.reload()
                         }, 2000);
                     }
                 })

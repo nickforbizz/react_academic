@@ -44,9 +44,6 @@ export default function Blogs() {
             
         })
 
-
-        
-
     },[])
 
 
@@ -67,13 +64,13 @@ export default function Blogs() {
 
                 <div className="card-stacked">
                 <div className="card-content">
-                    <h5> {item.title} </h5>
+                    <h5> {item.title.substring(0, 25)} ... </h5>
                     <div className="divider"></div>
-                    { ReactHtmlParser(item.body.substring(0, 400)) } <b> ... </b>
+                    { ReactHtmlParser(item.description.substring(0, 300)) } <b> ... </b>
                 </div>
 
                     <div className="card-action right-align">
-                        <Link to={`/single_blog/${item.id}/${item.user_id}`} className="waves-effect waves-light btn-small"> View </Link>
+                        <Link to={`/single_blog/${item.rowid}/${item.id}/${item.user_id}`} className="waves-effect waves-light btn-small"> View </Link>
                     </div>
 
                 </div>
@@ -92,6 +89,7 @@ export default function Blogs() {
 
         return (<div className="card material-table">
             <ToastContainer />
+            <h3>Blogs</h3>
             <p className={styles.nodata}> No Data Available </p>
         </div>)
 
@@ -104,7 +102,7 @@ export default function Blogs() {
     
                     <ToastContainer />
     
-                    <Maincarousel height={25}/>
+                    <Maincarousel height={25} data={blogs}/>
     
     
     

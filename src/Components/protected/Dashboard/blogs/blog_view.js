@@ -175,7 +175,14 @@ export default class blog_view extends Component {
                                         className="validate" 
                                 />
                             </div>
-    
+
+                            <div class="input-field col s12">
+                                <p>Short Description</p>
+                                <textarea id="textarea1" name="short_descr" class="materialize-textarea"
+                                value={this.state.post.description}
+                                >  </textarea>
+                            </div>
+     
                             <div className="col s12">
                                 <label htmlFor="category">Category</label>
                                 <select id="category"  className="browser-default" name="blog_category_id">

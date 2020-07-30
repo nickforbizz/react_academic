@@ -85,10 +85,10 @@ export default function AccWorksamples() {
             <div className="Xcontainer">
 
                 <div  className="row">
-                        <div className="col s3">
+                        <div className="col s3 ">
                             <SideLeftPage />
                         </div>
-                        <div className="col s9">
+                        <div className="col s12 m9 green">
 
                           <div className="row card" style={{ margin: '1rem' }}>                  
                               

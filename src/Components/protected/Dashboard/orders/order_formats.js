@@ -289,7 +289,10 @@ export default function OrderFormat() {
 
 
     if(orderformats.length < 1){
-        return <h3>Rendering</h3>
+        return <div className="card material-table">
+                    <h4>  Order Formats </h4>
+                    <p> No data available</p>
+                </div>
     }else{
 
         return (

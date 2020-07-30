@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 code {
@@ -66,8 +67,13 @@ code {
 .divider{
   height: 1px !important;
 }
+.shadow{
+  box-shadow: 1px 1px 6px 1px black !important;
+}
 
-
+.h50{
+  height: 50vh !important;
+}
 
 
 /* media queries */

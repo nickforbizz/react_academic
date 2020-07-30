@@ -41,6 +41,8 @@ export default function Users(props) {
     // call seerver data
     useEffect(() => {
 
+        console.log({props});
+
         M.AutoInit();
 
         let url_users = `${URL}/api/create_users?_token=${appauth.apptoken}`

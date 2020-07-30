@@ -257,20 +257,31 @@ export default function OrderLang() {
     const renderorderLang = () => {
         let template = null
 
-        template = orderlangs.map((item, i) => (
+        if(orderlangs.length < 1){
+            template = (
+                 <div className="card material-table">
+                    <h4>  Order Languages </h4>
+                    <p> No data available</p>
+                </div>
+            )
+        }else{
 
-                <tr key={i}>
-                    <td>{item.name}</td>
-                    <td> {item.status} </td>
-                    <td> {item.description} </td>
-                    <td> 
-                        <Moment fromNow>
-                            {item.created_at} 
-                        </Moment>
-                    </td>
-                    <td> <button className="btn waves-effect waves-light green" onClick={() => editOrderLang(item.id)}>Edit</button> </td>
-                </tr>
-        ))
+            template = orderlangs.map((item, i) => (
+    
+                    <tr key={i}>
+                        <td>{item.name}</td>
+                        <td> {item.status} </td>
+                        <td> {item.description} </td>
+                        <td> 
+                            <Moment fromNow>
+                                {item.created_at} 
+                            </Moment>
+                        </td>
+                        <td> <button className="btn waves-effect waves-light green" onClick={() => editOrderLang(item.id)}>Edit</button> </td>
+                    </tr>
+            ))
+        }
+
 
         return template
     }

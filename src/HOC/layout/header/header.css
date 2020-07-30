@@ -4,8 +4,8 @@
     z-index: 644949;
     width: 100%;
     /* padding: .5rem; */
-    background-color: #02be6e!important;
-    backface-visibility: hidden;
+    background-color: #02be6e !important;
+    backface-visibility: hidden !important;
   }
 
 .headTop{
@@ -17,7 +17,8 @@
 nav{
     color: white;
     background-color: #02be6e!important;
-    z-index: 999;
+    z-index: 999456;
+    backface-visibility: hidden !important;
     transition: all .4s linear;
 }
 .nav-wrapper{

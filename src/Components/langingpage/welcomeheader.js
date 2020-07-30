@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import {  Row, Col } from 'antd';
 
@@ -10,7 +10,19 @@ import appauth from '../../appauth'
 import styles from './welcomeheader.module.css'
 import { Link } from 'react-router-dom';
 
-export default function WelcomeHeader() {
+export default function WelcomeHeader(props) {
+    // states
+    const [blogs, setBlogs] = useState([])
+
+
+
+    useEffect(() => {
+        const blogs = props.data;
+        setBlogs(blogs)
+        console.log({blogs});
+    }, [])
+
+
     return (
         <React.Fragment>
 
@@ -46,7 +58,7 @@ export default function WelcomeHeader() {
                     </Col>
 
                     <Col xs={24} sm={8} md={8}>
-                        <Maincarousel height={15}/>
+                        <Maincarousel height={15} data={blogs}/>
                     </Col>
 
                     

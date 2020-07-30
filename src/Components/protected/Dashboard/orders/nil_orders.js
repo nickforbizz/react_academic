@@ -132,7 +132,10 @@ export default function NilOrders() {
 
 
     if(nilorders.length < 1){
-        return <h4 className="card material-table">No data available</h4>
+        return <div className="card material-table">
+                    <h4> Nil Orders </h4>
+                    <p> No data available</p>
+                </div>
     }else{
 
         return (

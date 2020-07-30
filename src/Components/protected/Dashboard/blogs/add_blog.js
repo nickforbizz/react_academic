@@ -129,18 +129,23 @@ export default class blog_view extends Component {
 
 
                 <div className="card material-table">
-                    <h4>Add Post</h4>
+                    <h4 className={styles.h50}>Add Post</h4>
 
 
                     <form  encType="multipart/form-data" id="post_form" onSubmit = { (e) => this.submitData(e) }>
 
                         <div className="input-field col s12">
-                            <p >Title</p>
                             <input id="title" 
-                                    name="title" 
+                                    name="title"
+                                    placeholder="blog title ..." 
                                     type="text" 
-                                    className="validate" 
                             />
+                            <label htmlFor="title">Title</label>
+                        </div>
+
+                        <div class="input-field col s12">
+                            <textarea id="textarea1" name="description" class="materialize-textarea"></textarea>
+                            <label for="textarea1">Short Description</label>
                         </div>
 
                         <div className="col s12">

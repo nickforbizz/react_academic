@@ -15,10 +15,11 @@ nav{
 .sticky {
   position: fixed;
   top: 0;
-  z-index: 20;
+  z-index: 898990;
   width: 100%;
   /* padding: .5rem; */
   background-color: #02be6e!important;
+  backface-visibility: hidden !important;
 }
 
 
