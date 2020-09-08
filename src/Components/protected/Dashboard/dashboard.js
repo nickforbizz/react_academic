@@ -30,7 +30,7 @@ class Dashboard extends React.Component {
   };
 
   componentDidMount() {
-    let fetch_totals = `${URL}/api/fetch_totals`
+    let fetch_totals = `${URL}/api/fetch_totals` 
 
         fetchData(fetch_totals).then(data=>{
             
