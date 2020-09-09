@@ -1,7 +1,7 @@
 import Axios from 'axios'
 
 
-const URL = 'http://127.0.0.1:5000'
+const URL = 'https://researchbrisk.com/flask'
 
 const tinymceKey = '9n7q5uo1xhu6jzgvvgmzn0w0qly6ck0p6cffyk4iwxl5ieyq'
 
