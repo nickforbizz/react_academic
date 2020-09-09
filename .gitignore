@@ -9,6 +9,7 @@
 /coverage
 
 # production
+# /build
 
 # misc
 .DS_Store
@@ -31,7 +32,7 @@ yarn-error.log*
 /coverage
 
 # production
-/build
+# /build/logo192.png
 
 # misc
 .DS_Store
